@@ -12,7 +12,7 @@
         {% csrf_token %}
         
         <div class="form-group">
-            <label>Pergunta 1:</label>
+            <label>Sinto-me esgotado(a) emocionalmente com relação ao meu trabalho:</label>
             <div class="options">
                 {% for value, label in form.pergunta1.field.choices %}
                     <div class="option-item">
