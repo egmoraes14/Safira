@@ -109,7 +109,22 @@ def resultado_view(request):
     opcao5_count = contagem['opcao5'] * 5
     total = opcao1_count + opcao2_count + opcao3_count + opcao4_count + opcao5_count
 
+    frase = ""
+
+    if total < 21:
+        frase = "Nenhum indício aparente de Síndrome de Burnout."
+    elif 21 <= total <= 40:
+        frase = "Possibilidade de desenvolver recomendações de prevenção da Síndrome de Burnout. Procure trabalhar as recomendações para prevenir o aumento do risco."
+    elif 41 <= total <= 60:
+        frase = "Fase inicial do Burnout. Procure ajuda profissional para debelar os sintomas e garantir, assim, a qualidade no desempenho profissional e sua qualidade de vida."
+    elif 61 <= total <= 80:
+        frase = "A Síndrome está instalada. Procure ajuda profissional para trabalhar com foco nos sintomas e na melhoria da qualidade dos resultados obtidos."
+    elif 81 <= total <= 100:
+        frase = "Você pode estar em uma fase considerável do Burnout, mas esse é um ponto em que é reversível e que sua confiança e nível de produtividade podem ser recuperados. Procure tratamento quanto antes."
+    else:
+        frase = "Algo deu errado"
     return render(request, 'resultado.html', {
         'contagem': contagem,
         'total': total,
+        'frase': frase,
     })
